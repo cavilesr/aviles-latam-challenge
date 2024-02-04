@@ -138,5 +138,9 @@ As the number of system increases, so would increase the amount of gathered data
 Lastly, if the visualization or monitoring tool is not chossen correctly, scaling the solution might encounter compatibility issues or limitations on the amount of information it can handle and hence impact in the system observability.
 
 ## Part 5: Alerts & SRE
+### Requirements
+```
+1. Define specifically what rules or thresholds you would use for the proposed metrics so that alerts are triggered to the team when the system performance declines. Justify your answer.
 
-*** In construction ***
+2. Define SLIs for the system services and an SLO for each of the SLIs. Justify why you chose those SLIs/SLOs and why you discarded other metrics to use within the definition of SLIs.
+```
