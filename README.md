@@ -31,8 +31,15 @@ While this combination of technologies can provide a straightforward solution fo
 By leveraging these cloud-native technologies, the system can benefit from seamless integration, scalability, and easier configuration. This approach ensures better compatibility with the cloud environment and facilitates future scalability and integration with other cloud services.
 
 ## Part 2: Applications and CI/CD flow
+### Requirements
+```
+1. Set up and HTTP Endpoint with logic to read data from a database and expose it upon receiving a GET request.
 
-*** In construction ***
+2. Deploy the HTTP API to the cloud using CI/CD. Workflow and executions should be visible in the repository.
+
+3. Include an architecture diagram
+```
+
 
 ## Part 3: Integration Testing and Critical Quality Points
 
