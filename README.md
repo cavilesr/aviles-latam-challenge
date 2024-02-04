@@ -72,6 +72,24 @@ The architectural diagram can be described as follows:
 
 4. Propose technical measures to strengthen the system and address or resolve these critical points.
 ```
+In these [Integration tests](/integration_tests.py), I defined the following test cases:
+1. The **test_get_data** method, which sends a GET request to the API endpoint and asserts that the response status code is 200 (OK).
+2. The **test_insert_data** method, which sends a payload with a POST request to the API endpoint, asserts that the response status code is 200 (OK) and then validates that the inserted data is reflected in a subsequent GET request.
+3. The **test_update_data** method, which sends a payload with a PUT request to the API endpoint, asserts that the response status code is 200 (OK) and then validates that the updated data is reflected in a subsequent GET request.
+
+Other integration tests to validate that the system is working correctly could include:
+- **Testing error handling**: These are tests that simulate wrong requests or invalid data to ensure that the API handles them correctly, returning appropriate error responses.
+- **Testing performance**: These are tests that measure the response time of the API using different load conditions, such as sending multiple concurrent requests or gradually increasing the number of requests.
+
+Some possible critical points in the system could be:
+- **Database connection failures**. A way to test the system's resilience to database connection failures could be by simulating scenarios where the database becomes temporaly unavailable or experiences high latency.
+- **Scalability and performance**. This could be measured by simulating a high number of concurrent requests and monitoring responses times and resources utilization.
+- **Error handling**. This could be achieved by testing the system with large data sets, invalid or malformed requests and unexpected inputs, to ensure it correctly handles errors and does not crash or expose sensitive information.
+
+Having identified these critical points, some technical measures that could be implemented to strengthen the system are:
+- **Caching**: Introducing caching mechanisms to reduce the load on the database and improve response times for frequently accessed data.
+- **Load testing and performance optimization**: Implementing load testing to identify performance bottlenecks and optimize the system accordingly. This may involve optimizing database queries, improving indexing or scaling up resources.
+- **Monitoring and Logging**: Implement comprenhensive monitoring and logging solutions (as the ones that are native already to GCP) to track system performance, identify issues, and facilitate troubleshooting. This can include monitoring database performance, API response times, error rates, among others.
 
 ## Part 4: Metrics & Monitoring
 
