@@ -92,8 +92,19 @@ Having identified these critical points, some technical measures that could be i
 - **Monitoring and Logging**: Implement comprenhensive monitoring and logging solutions (as the ones that are native already to GCP) to track system performance, identify issues, and facilitate troubleshooting. This can include monitoring database performance, API response times, error rates, among others.
 
 ## Part 4: Metrics & Monitoring
+### Requirements
+```
+1. Propose 3 metrics (besides CPU/RAM/DISK USAGE) critical to understand the health and performance of the end-to-end system.
 
-*** In construction ***
+2. Propose a visualization tool and describe the  metrics it would display and how this information would help us understand the system's health for making strategic decisions.
+
+3. Describe how the implementation would be in the cloud and how it would collect system metrics.
+
+4. Describe how the visualization would change if we scale the solution to 50 similar systems and what other metrics or visualization methods would unlock this scalability.
+
+5.Comment on the difficulties or limitations that could arise in terms of system observability if the scalability problem is not addressed correctly.
+```
+
 
 ## Part 5: Alerts & SRE
 
