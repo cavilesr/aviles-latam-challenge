@@ -62,8 +62,16 @@ The architectural diagram can be described as follows:
 7. Jenkins: The CI/CD pipeline is orchestrated using Jenkins. Jenkins is responsible for automating the build, test, and deployment processes. It pulls the source code from the version control system, builds the Docker image, and deploys the image to Google Artifact Registry and then is built into Google Cloud Run.
 
 ## Part 3: Integration Testing and Critical Quality Points
+### Requirements
+```
+1. Implement an integration test in the CI/CD pipeline to verify that the API effectively exposes data from the database. Provide arguments for this test.
 
-*** In construction ***
+2. Propose other integration tests to validate that the system is functioning correctly and explain how they would be implemented.
+
+3. Identify possible critical points in the system (in terms of failure or performance) that are different from the previous point and suggest ways to test or measure them (without implementing).
+
+4. Propose technical measures to strengthen the system and address or resolve these critical points.
+```
 
 ## Part 4: Metrics & Monitoring
 
