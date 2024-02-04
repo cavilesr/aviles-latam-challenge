@@ -144,3 +144,28 @@ Lastly, if the visualization or monitoring tool is not chossen correctly, scalin
 
 2. Define SLIs for the system services and an SLO for each of the SLIs. Justify why you chose those SLIs/SLOs and why you discarded other metrics to use within the definition of SLIs.
 ```
+#### Rules & Thresholds
+For the proposed metrics discussed on part 4, I would add the following rules:
+1. **Request Latency**:
+    - This affects directly the user experience, so by setting a threshold, lets say 500 ms, for the maximum acceptable response time for API requests, we could proactively identify performance degradation that may affect users. We could set an alert if the average response time exceeds the threshold for 5 minutes and trigger an alert to the corresponding team, and this will lead to a prompt investigation allowing the team to come up with a resolution and mantain an optimal system performance.
+
+2. **Error Rate**:
+    - This indicates the stability and reliability of the system, so by setting a threshold, this could be a maximum error rate of 5%, we could monitor the occurrence of errors and take proper actions when the error rate exceeds the acceptable limit. We could set an alert if the error rate exceed the threshold for 5 minutes, ensuring that the corresponding team can address potential issues.
+
+3. **Throughput**:
+    - This reflects the system's capacity to handle incoming requests, so by setting a threshold, in this case 1000 requests, for the maximum acceptable number of requests per second, we could monitor the system's ability to handle the expected load. We could set an alert if the throughput exceeds the threshold for 5 minutes, ensuring that the corresponding team can identify situations where the system may be reaching its capacity limits.
+
+#### SLIs & SLOs
+1. **SLI: Availability**
+    - SLO: Ensure that the API hast at least 99.9% availability over a monthly period.
+    - This is a critical aspecto of the system and by setting this SLO, we aim to ensure that the API is highly available, minimizing downtime and maximizing user access to the system.
+
+2. **SLI: Error Rate**
+    - SLO: Mantain an error rate below 1% of requests over a monthly period.
+    - This is an important stability indicator, so by setting this SLO, we aim to ensure a reliable and robust user experience.
+
+3. **SLI: Response Time**
+    - SLO: Mantain an average response time below 300 ms over a monthly period.
+    - This impact directly to user satisfaction, so by setting this SLO, we aim to ensure that the system responds quickly, providing a smooth and responsive user experience.
+
+Other metrics, such as CPU/RAM/DISK USAGE, were not included as SLIs because they are more infrastructure-focused and may not directly reflect the end-user experience. However, they can still be monitored and used for troubleshooting and capacity planning purposes. These metrics can provide insights into resource utilization and help identify bottlenecks or performance issues at the infrastructure level.
