@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    checkout scm
+                }
+            }
+        }
+
+        stage('Build Docker Image & Test') {
+            steps {
+                script {
+                    def imageTag = "latam-http-endpoint:${env.BUILD_NUMBER}"
+                    docker.build(imageTag)
+                    docker.image(imageTag).tag('latam-http-endpoint:latest')
+                    sh 'docker run --rm latam-http-endpoint python -m unittest discover -s tests -p "integration_tests.py"'
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://gcr.io', 'gcr-credentials') {
+                        docker.image('gcr.io/mock-project/latam-http-endpoint:latest').push
+                    }
+                }
+            }
+        }
+
+        stage('Deploy Cloud Run') {
+            steps {
+                script {
+                    sh 'gcloud run deploy latam-http-endpoint-cr \
+                        --image=gcr.io/mock-project/latam-http-endpoint:latest \
+                        --region=us-central1 \
+                        --allow-unauthenticated \
+                        --memory=256Mi \
+                        --timeout=60 \
+                        --platform=managed \
+                        --project=mock-project'
+                }
+            }
+        }
+    }
+}
