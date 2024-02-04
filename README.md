@@ -39,7 +39,16 @@ By leveraging these cloud-native technologies, the system can benefit from seaml
 
 3. Include an architecture diagram
 ```
-
+In order to setup correctly the HTTP endpoint as required, the following files were elaborated:
+1. [Requirements](/requirements.txt)
+    - This file lists the dependencies required for the Python code to run. It includes the Flask framework for building the HTTP endpoint and the google-cloud-bigquery library for interacting with Google Cloud BigQuery.
+2. [Python code](/main.py)
+    - This file contains the Python code that defines the HTTP endpoint. It includes a route that listens for GET requests and retrieves data from the specified BigQuery table in JSON format.
+3. [Dockerfile](/Dockerfile)
+    - This file is used to build a Docker image.
+4. [Jenkinsfile](/jenkinsfile)
+    - This file defines the CI/CD pipeline using Jenkins. It includes stages to checkout the source code for changes, building the Docker image and deploying the image to Google Cloud Functions.
+    
 
 ## Part 3: Integration Testing and Critical Quality Points
 
