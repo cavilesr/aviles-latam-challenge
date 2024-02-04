@@ -104,7 +104,38 @@ Having identified these critical points, some technical measures that could be i
 
 5.Comment on the difficulties or limitations that could arise in terms of system observability if the scalability problem is not addressed correctly.
 ```
+#### Metrics
+I would propose three different metrics to understand better the health and performance of the end-to-end system:
+1. **Request Latency**:
+    - I think is important to measure the time taken for the API to respond to requests and this metric would help to identify performance bottlenecks and potential issues affecting user experience.
 
+2. **Error Rate**:
+    - It is important to track the percentage of requests that result in errors or failures so the system can provide insights into the stability and reliability of itself.
+
+3. **Throughput**:
+    - This metric would help to measure the number of requests processed by the system per unit of time and would help to assess the system's capacity and scalability.
+
+#### Visualization tool
+I think that a good tool for visualize the above metrics could be Grafana. This is a very popular open-source visualization tool that can display various metrics in real-time dashboards. It also supports custom visualizations, such as line charts, heatmaps, gauges, among others. 
+
+With Grafana you can display all the metrics discussed on the previous point (request latency, error rate and throughput). It can provide real-time graphs, alerts, and visual indicators to monitor the health and performance of the system.
+
+This information can help identify trends, anomalies, and potential issues, which will allow to make informed decisions regarding system optimization, resource allocation and scalling strategies.
+
+#### Cloud Implementation
+Now for a cloud implementation I think is best, again, to stick to what is cloud-native, in this case to use what Google Cloud Platform already provides such as Google Cloud Monitoring. This service provides APIs and agents to gather all those metrics from all different resources we use in the cloud and is easier to retrieve that data.
+
+#### Scalability
+If we scale the solution to 50 similar systems, the visualization tool that we are using (either grafana or google cloud monitoring) would need to support aggregating and comparing metrics accross multiple instances. It would need to display metrics for each system individually and provide options to view aggregated metrics for all systems. This would help to identify different patterns, anomalies and performance variations across the 50 similar systems.
+
+Also, we may require monitoring additional metrics like resource utilization, network traffic, or database performance, which would provide insights into the overall system health and help identify potential scalability problems.
+
+#### Difficulties & Limitations
+If the scalability problem is not addressed correctly, it may become challenging to collect, aggregate, visualize and analyze all different metrics accross all systems. This can limit observability and hinder the ability to identify potential issues or bottlenecks.
+
+As the number of system increases, so would increase the amount of gathered data, which means that handling and analizing large amounts of data can become complex really quickly, making it more complicated to identify critical issues or extract meaningful insights.
+
+Lastly, if the visualization or monitoring tool is not chossen correctly, scaling the solution might encounter compatibility issues or limitations on the amount of information it can handle and hence impact in the system observability.
 
 ## Part 5: Alerts & SRE
 
