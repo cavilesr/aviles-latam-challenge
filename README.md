@@ -48,7 +48,18 @@ In order to setup correctly the HTTP endpoint as required, the following files w
     - This file is used to build a Docker image.
 4. [Jenkinsfile](/jenkinsfile)
     - This file defines the CI/CD pipeline using Jenkins. It includes stages to checkout the source code for changes, building the Docker image and deploying the image to Google Cloud Functions.
-    
+
+### Architectural Diagram
+![Architectural diagram](/assets/images/diagram.png)
+
+The architectural diagram can be described as follows:
+1. User interface: The user interacts with the system by sending HTTP GET resquests to the exposed endpoints
+2. Flask Application: The Flask framework is used to build the HTTP endpoint within the Cloud Function. It handles the incoming requests, retrieves data from Google Cloud BigQuery, and returns the data as a JSON response.
+3. Cloud Run: The HTTP endpoint is implemented as a serverless service using Google Cloud Run. It receives the GET requests and triggers the execution of the associated code.
+4. Google Cloud BigQuery: The system leverages Google Cloud BigQuery as the data storage and retrieval mechanism. It stores the structured data in a table, and the Flask application queries the table to retrieve the required data.
+5. Docker: The system utilizes Docker to containerize the Flask application. The Dockerfile specifies the necessary dependencies, builds the Docker image, and packages the application along with its dependencies.
+6. Artifact Registry: The Docker image is pushed to a container registry, such as Google Artifact Registry (GAR). The registry stores the Docker image and makes it available for deployment.
+7. Jenkins: The CI/CD pipeline is orchestrated using Jenkins. Jenkins is responsible for automating the build, test, and deployment processes. It pulls the source code from the version control system, builds the Docker image, and deploys the image to Google Artifact Registry and then is built into Google Cloud Run.
 
 ## Part 3: Integration Testing and Critical Quality Points
 
